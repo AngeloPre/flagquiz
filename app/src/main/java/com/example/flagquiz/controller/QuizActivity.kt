@@ -73,6 +73,13 @@ class QuizActivity : AppCompatActivity() {
             }
 
             tvFeedback.visibility = View.VISIBLE
+            
+            if (currentIndex == quizFlags.size - 1) {
+                btnNext.text = "Ver resultados"
+            } else {
+                btnNext.text = "Próximo"
+            }
+
             btnNext.visibility = View.VISIBLE
             btnConfirm.isEnabled = false
         }
