@@ -2,6 +2,7 @@ package com.example.flagquiz.controller
 
 import android.content.Intent
 import android.os.Bundle
+import android.view.inputmethod.InputMethodManager
 import android.view.View
 import android.widget.Button
 import android.widget.EditText
@@ -54,6 +55,9 @@ class QuizActivity : AppCompatActivity() {
         btnConfirm.setOnClickListener {
             val answer = etAnswer.text.toString().trim()
             if (answer.isEmpty()) return@setOnClickListener
+
+            val imm = getSystemService(INPUT_METHOD_SERVICE) as InputMethodManager
+            imm.hideSoftInputFromWindow(etAnswer.windowToken, 0)
 
             val correct = quizFlags[currentIndex].country
             if (answer.equals(correct, ignoreCase = true)) {
