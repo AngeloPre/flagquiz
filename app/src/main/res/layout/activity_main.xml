@@ -39,6 +39,7 @@
         android:layout_marginTop="68dp"
         android:backgroundTint="#3BA1AF"
         android:fontFamily="@font/geologica_bold"
+        android:onClick="getUser"
         android:text="Começar"
         android:textSize="20sp"
         app:layout_constraintEnd_toEndOf="parent"
