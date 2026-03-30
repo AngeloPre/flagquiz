@@ -1,6 +1,7 @@
 package com.example.flagquiz.controller
 
 import android.content.Intent
+import android.os.Build
 import android.os.Bundle
 import android.view.inputmethod.InputMethodManager
 import android.view.View
@@ -91,7 +92,12 @@ class QuizActivity : AppCompatActivity() {
             } else {
                 val intent = Intent(this, ResultActivity::class.java)
                 intent.putExtra("SCORE", score)
-                intent.putExtra("USER", getIntent().getStringExtra("USER"))
+                val user = if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) {
+                    getIntent().getSerializableExtra("USER", String::class.java)
+                } else {
+                    getIntent().getSerializableExtra("USER") as String
+                }
+                intent.putExtra("USER", user)
                 startActivity(intent)
             }
         }

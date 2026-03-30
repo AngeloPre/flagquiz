@@ -1,6 +1,7 @@
 package com.example.flagquiz.controller
 
 import android.content.Intent
+import android.os.Build
 import android.os.Bundle
 import android.widget.Button
 import android.widget.TextView
@@ -26,7 +27,12 @@ class ResultActivity : AppCompatActivity() {
         textViewPontuacao.text = score.toString()
 
         val textViewNome = findViewById<TextView>(R.id.textViewNome)
-        textViewNome.text = intent.getStringExtra("USER")
+        val user = if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) {
+            intent.getSerializableExtra("USER", String::class.java)
+        } else {
+            intent.getSerializableExtra("USER") as String
+        }
+        textViewNome.text = user
 
         val buttonRecomecar = findViewById<Button>(R.id.buttonRecomecar)
         buttonRecomecar.setOnClickListener {
