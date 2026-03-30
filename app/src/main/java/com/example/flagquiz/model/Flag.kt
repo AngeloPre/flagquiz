@@ -1,4 +1,4 @@
-package com.example.flagquiz
+package com.example.flagquiz.model
 
 import java.io.Serializable
 
