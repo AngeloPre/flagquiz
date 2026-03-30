@@ -1,6 +1,9 @@
 package com.example.flagquiz.controller
 
+import android.content.Intent
 import android.os.Bundle
+import android.view.View
+import android.widget.EditText
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
@@ -17,5 +20,14 @@ class MainActivity : AppCompatActivity() {
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
             insets
         }
+    }
+    fun getUser(view: View) {
+        val user = findViewById<EditText>(R.id.userNameEditText).text.toString()
+
+        val intent = Intent(this, QuizActivity::class.java)
+
+        intent.putExtra("USER", user)
+
+        startActivity(intent)
     }
 }

@@ -20,11 +20,12 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <EditText
-        android:id="@+id/editTextText2"
+        android:id="@+id/userNameEditText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="72dp"
         android:ems="10"
+        android:fontFamily="@font/geologica_bold"
         android:hint="Insira aqui o seu nome"
         android:inputType="text"
         app:layout_constraintEnd_toEndOf="parent"
@@ -32,13 +33,16 @@
         app:layout_constraintTop_toBottomOf="@+id/textView" />
 
     <Button
-        android:id="@+id/button"
+        android:id="@+id/button2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="60dp"
+        android:layout_marginTop="68dp"
+        android:backgroundTint="#3BA1AF"
+        android:fontFamily="@font/geologica_bold"
         android:text="Começar"
+        android:textSize="20sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editTextText2" />
+        app:layout_constraintTop_toBottomOf="@+id/userNameEditText" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
