@@ -7,6 +7,7 @@ import android.view.View
 import android.widget.Button
 import android.widget.EditText
 import android.widget.ImageView
+import android.widget.ProgressBar
 import android.widget.TextView
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
@@ -39,11 +40,13 @@ class QuizActivity : AppCompatActivity() {
         val btnNext = findViewById<Button>(R.id.btnNext)
         val tvFeedback = findViewById<TextView>(R.id.tvFeedback)
         val tvQuestionCounter = findViewById<TextView>(R.id.tvQuestionCounter)
+        val progressBar = findViewById<ProgressBar>(R.id.progressBar)
 
         fun showQuestion() {
             val flag = quizFlags[currentIndex]
             ivFlag.setImageResource(flag.drawableRes)
             tvQuestionCounter.text = "Pergunta ${currentIndex + 1} de ${quizFlags.size}"
+            progressBar.progress = (currentIndex * 100) / quizFlags.size
             etAnswer.text.clear()
             tvFeedback.visibility = View.GONE
             btnNext.visibility = View.GONE
@@ -62,9 +65,11 @@ class QuizActivity : AppCompatActivity() {
             val correct = quizFlags[currentIndex].country
             if (answer.equals(correct, ignoreCase = true)) {
                 tvFeedback.text = "Correto!"
+                tvFeedback.setTextColor(getColor(android.R.color.holo_green_dark))
                 score += 20
             } else {
                 tvFeedback.text = "Incorreto! Era: $correct"
+                tvFeedback.setTextColor(getColor(android.R.color.holo_red_dark))
             }
 
             tvFeedback.visibility = View.VISIBLE
