@@ -1,6 +1,7 @@
 package com.example.flagquiz.controller
 
 import android.os.Bundle
+import android.widget.TextView
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
@@ -17,5 +18,12 @@ class ResultActivity : AppCompatActivity() {
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
             insets
         }
+
+        val score = intent.getIntExtra("SCORE", 0)
+        val textViewPontuacao = findViewById<TextView>(R.id.textViewPontuacao)
+        textViewPontuacao.text = score.toString()
+
+        val textViewNome = findViewById<TextView>(R.id.textViewNome)
+        textViewNome.text = intent.getStringExtra("USER")
     }
 }
