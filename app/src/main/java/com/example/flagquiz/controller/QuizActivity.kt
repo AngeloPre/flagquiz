@@ -15,6 +15,7 @@ import androidx.core.view.WindowInsetsCompat
 import com.example.flagquiz.R
 import com.example.flagquiz.model.Flag
 import com.example.flagquiz.model.FlagRepository
+import java.text.Normalizer
 
 class QuizActivity : AppCompatActivity() {
 
@@ -60,7 +61,8 @@ class QuizActivity : AppCompatActivity() {
             imm.hideSoftInputFromWindow(etAnswer.windowToken, 0)
 
             val correct = quizFlags[currentIndex].country
-            if (answer.equals(correct, ignoreCase = true)) {
+
+            if (removeAccents(answer).equals(removeAccents(correct), ignoreCase = true)) {
                 tvFeedback.text = "Correto!"
                 score += 20
             } else {
@@ -90,5 +92,10 @@ class QuizActivity : AppCompatActivity() {
                 startActivity(intent)
             }
         }
+    }
+
+    private fun removeAccents(str: String): String {
+        val normalized = Normalizer.normalize(str, Normalizer.Form.NFD)
+        return normalized.replace(Regex("[\\p{InCombiningDiacriticalMarks}]"), "")
     }
 }
