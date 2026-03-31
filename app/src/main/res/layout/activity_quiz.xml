@@ -34,11 +34,12 @@
         android:id="@+id/btnConfirm"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
+        android:layout_marginStart="24dp"
         android:layout_marginTop="12dp"
+        android:layout_marginEnd="24dp"
         android:fontFamily="@font/geologica_bold"
         android:text="Confirmar"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/etAnswer" />
 
@@ -71,12 +72,13 @@
         android:id="@+id/btnNext"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
+        android:layout_marginStart="24dp"
         android:layout_marginTop="16dp"
+        android:layout_marginEnd="24dp"
         android:fontFamily="@font/geologica_bold"
         android:text="Próximo"
         android:visibility="gone"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/tvFeedback"
         tools:visibility="visible" />
@@ -101,12 +103,13 @@
         android:id="@+id/etAnswer"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
+        android:layout_marginStart="24dp"
         android:layout_marginTop="44dp"
+        android:layout_marginEnd="24dp"
         android:fontFamily="@font/geologica_bold"
         android:hint="Digite o nome do país"
         android:inputType="textCapWords"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView4" />
 
