@@ -8,18 +8,27 @@
     android:padding="24dp"
     tools:context=".controller.QuizActivity">
 
-    <ImageView
-        android:id="@+id/ivFlag"
-        android:layout_width="220dp"
-        android:layout_height="140dp"
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cardFlag"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:layout_marginTop="36dp"
-        android:contentDescription="Bandeira"
-        android:scaleType="fitCenter"
+        app:cardCornerRadius="12dp"
+        app:cardElevation="8dp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.496"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/progressBar"
-        tools:srcCompat="@drawable/flag_br" />
+        app:layout_constraintTop_toBottomOf="@id/progressBar">
+
+        <ImageView
+            android:id="@+id/ivFlag"
+            android:layout_width="260dp"
+            android:layout_height="160dp"
+            android:contentDescription="Bandeira"
+            android:padding="16dp"
+            android:scaleType="fitCenter"
+            tools:srcCompat="@drawable/flag_br" />
+
+    </androidx.cardview.widget.CardView>
 
     <Button
         android:id="@+id/btnConfirm"
@@ -120,6 +129,6 @@
         android:text="Qual país esta bandeira representa?"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/ivFlag" />
+        app:layout_constraintTop_toBottomOf="@+id/cardFlag" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
